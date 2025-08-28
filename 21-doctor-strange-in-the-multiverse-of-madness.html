@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Strange in the Multiverse of Madness (2022) Hindi Download | 𝙰𝙼𝚅 𝚅𝙴𝚁𝚂𝙴</title>
+    <meta name="description"
+        content="Download Doctor Strange in the Multiverse of Madness (2022) in Hindi quality. Hindi audio with English subtitles.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://ik.imagekit.io/qoobmximx/1755723758120.png?updatedAt=1755723796692"
+        type="png/image/x-icon">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Loading Animation -->
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">𝙰𝙼𝚅 𝚅𝙴𝚁𝚂𝙴</a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="1-all-content.html"><i class="fas fa-list"></i> All Contents</a></li>
+                    <li><a href="help.html"><i class="fas fa-question-circle"></i> How to Download</a></li>
+                    <li><a href="DMCA.html"><i class="fas fa-gavel"></i> DMCA</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Search Contents, Category...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Movie Detail Section -->
+    <main class="movie-detail-container">
+        <div class="container">
+            <div class="movie-detail-header">
+                <div class="movie-poster">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDQzNDZhXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg"
+                        alt="Doctor Strange in the Multiverse of Madness" loading="lazy">
+                </div>
+                <div class="movie-actions">
+                    <a href="#download" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                    <!-- Button with video trailer  -->
+                    <button class="btn btn-secondary" id="trailerButton" data-video-url="https://youtu.be/aWzlQ2N6qqg">
+                        <i class="fas fa-play"></i> Trailer
+                    </button>
+
+                    <!-- Modal for video player -->
+                    <div id="videoModal" class="modal"
+                        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
+                        <div style="position:relative; width:80%; max-width:800px;">
+                            <span class="close-modal"
+                                style="position:absolute; top:-40px; right:0; color:white; font-size:30px; cursor:pointer;">&times;</span>
+                            <div id="videoPlayerContainer" style="padding-top:56.25%; position:relative;">
+                                <iframe id="videoPlayer"
+                                    style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const trailerButton = document.getElementById('trailerButton');
+                            const videoModal = document.getElementById('videoModal');
+                            const videoPlayer = document.getElementById('videoPlayer');
+                            const closeModal = document.querySelector('.close-modal');
+
+                            // Function to extract YouTube ID from URL or return the original URL
+                            function getVideoEmbedUrl(url) {
+                                // YouTube handling
+                                if (url.includes('youtube.com') || url.includes('youtu.be')) {
+                                    let videoId = '';
+                                    if (url.includes('v=')) {
+                                        videoId = url.split('v=')[1].split('&')[0];
+                                    } else if (url.includes('youtu.be/')) {
+                                        videoId = url.split('youtu.be/')[1].split('?')[0];
+                                    }
+                                    return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+                                }
+                                // Vimeo handling
+                                else if (url.includes('vimeo.com')) {
+                                    const videoId = url.split('vimeo.com/')[1].split('?')[0];
+                                    return `https://player.vimeo.com/video/${videoId}?autoplay=1`;
+                                }
+                                // Direct video file (mp4, webm, etc.)
+                                else if (url.match(/\.(mp4|webm|ogg)$/i)) {
+                                    return url;
+                                }
+                                // If none of the above, return as-is (may work for some providers)
+                                return url;
+                            }
+
+                            trailerButton.addEventListener('click', function () {
+                                const videoUrl = this.getAttribute('data-video-url');
+                                if (videoUrl) {
+                                    const embedUrl = getVideoEmbedUrl(videoUrl);
+                                    videoPlayer.src = embedUrl;
+                                    videoModal.style.display = 'flex';
+                                }
+                            });
+
+                            closeModal.addEventListener('click', function () {
+                                videoPlayer.src = '';
+                                videoModal.style.display = 'none';
+                            });
+
+                            // Close modal when clicking outside the video
+                            videoModal.addEventListener('click', function (e) {
+                                if (e.target === videoModal) {
+                                    videoPlayer.src = '';
+                                    videoModal.style.display = 'none';
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+
+            <div class="movie-info">
+                <h1>Doctor Strange in the Multiverse of Madness <span>(2022)</span></h1>
+                <h2 class="original-title">Marvel's Multiverse Adventure</h2>
+
+                <div class="movie-meta">
+                    <span><i class="fas fa-star"></i> 7.0/10</span>
+                    <span><i class="fas fa-clock"></i> 126 min</span>
+                    <span><i class="fas fa-calendar"></i> 2022</span>
+                    <span><i class="fas fa-globe"></i> USA</span>
+                    <span><i class="fas fa-tv"></i> Movie</span>
+                </div>
+
+                <div class="movie-info">
+                    <h3><i class="fas fa-tags"></i> genres - Action, Adventure, Fantasy, Superhero</h3>
+
+                    <div class="movie-languages">
+                        <span><strong>Available in:</strong></span>
+                        <button class="active">Hindi</button>
+                        <button>English Sub</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-detail-content">
+                <div class="movie-info">
+                    <h2><i class="fas fa-scroll"></i> Synopsis</h2>
+                    <p>Doctor Strange in the Multiverse of Madness continues the adventures of Doctor Strange as he
+                        explores the multiverse with the help of both new and old allies. After the events of
+                        Spider-Man: No Way Home, Strange must face the consequences of his spell that broke open the
+                        multiverse.</p>
+                    <p>When a mysterious new enemy emerges who can travel through the multiverse, Strange seeks help
+                        from Wanda Maximoff (Scarlet Witch) and America Chavez, a teenager with the ability to travel
+                        between universes. Together, they journey through mind-bending and dangerous alternate realities
+                        to confront a terrifying new threat that could destroy all of reality.</p>
+                </div>
+
+                <div class="movie-info">
+                    <h2><i class="fas fa-users"></i> Main Characters</h2>
+
+                    <div class="cast-grid">
+                        <div class="cast-item">
+                            <div class="cast-photo">
+                                <img src="https://m.media-amazon.com/images/M/MV5BNzg0Mzc5NDkyOV5BMl5BanBnXkFtZTcwNjg5ODkzNA@@._V1_.jpg"
+                                    alt="Benedict Cumberbatch as Doctor Strange" loading="lazy">
+                            </div>
+                            <h4>Benedict Cumberbatch</h4>
+                            <p>Dr. Stephen Strange / Doctor Strange</p>
+                        </div>
+                        <div class="cast-item">
+                            <div class="cast-photo">
+                                <img src="https://m.media-amazon.com/images/M/MV5BMTc0Mzk1MjI2OF5BMl5BanBnXkFtZTcwNTE4MTg4Ng@@._V1_.jpg"
+                                    alt="Elizabeth Olsen as Wanda Maximoff" loading="lazy">
+                            </div>
+                            <h4>Elizabeth Olsen</h4>
+                            <p>Wanda Maximoff / Scarlet Witch</p>
+                        </div>
+                        <div class="cast-item">
+                            <div class="cast-photo">
+                                <img src="https://m.media-amazon.com/images/M/MV5BMTUwOTQ0NzY2N15BMl5BanBnXkFtZTcwNDE0NjY5Nw@@._V1_.jpg"
+                                    alt="Xochitl Gomez as America Chavez" loading="lazy">
+                            </div>
+                            <h4>Xochitl Gomez</h4>
+                            <p>America Chavez</p>
+                        </div>
+                        <div class="cast-item">
+                            <div class="cast-photo">
+                                <img src="https://m.media-amazon.com/images/M/MV5BMTM3MjgyOTQzNl5BMl5BanBnXkFtZTcwMDkyNzE2Nw@@._V1_.jpg"
+                                    alt="Rachel McAdams as Christine Palmer" loading="lazy">
+                            </div>
+                            <h4>Rachel McAdams</h4>
+                            <p>Christine Palmer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-info">
+                    <h2><i class="fas fa-images"></i> Screenshots</h2>
+                    <div class="screenshot-info">
+                        <div class="screenshot">
+                            <img src="https://cdn.marvel.com/content/1x/doctorstrangeinthemultiverseofmadness_lob_crd_03.jpg"
+                                alt="Screenshot 1" loading="lazy">
+                        </div>
+                        <div class="screenshot">
+                            <img src="https://cdn.marvel.com/content/1x/doctorstrangeinthemultiverseofmadness_lob_crd_02.jpg"
+                                alt="Screenshot 2" loading="lazy">
+                        </div>
+                        <div class="screenshot">
+                            <img src="https://cdn.marvel.com/content/1x/doctorstrangeinthemultiverseofmadness_lob_crd_01.jpg"
+                                alt="Screenshot 3" loading="lazy">
+                        </div>
+                        <div class="screenshot">
+                            <img src="https://cdn.marvel.com/content/1x/doctorstrangeinthemultiverseofmadness_lob_crd_04.jpg"
+                                alt="Screenshot 4" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="download" class="movie-downloads">
+                    <h2><i class="fas fa-download"></i> Download Links</h2>
+
+                    <div class="download-options">
+                        <h3> Hindi Version</h3>
+                        <div class="download-quality">
+                            <h3><i class="fas fa-cloud-download-alt"></i>MULTI-SERVER</h3>
+                            <div class="hero-actions">
+                                <a href="https://teraboxlinks.com/doctorstrange480" class="btn btn-primary">480p</a>
+
+                                <div class="hero-actions">
+                                    <a href="https://teraboxlinks.com/doctorstrange720" class="btn btn-primary">720p</a>
+
+                                    <div class="hero-actions">
+                                        <a href="https://teraboxlinks.com/doctorstrange1080"
+                                            class="btn btn-primary">1080p</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-recommendations">
+                    <h2><i class="fas fa-thumbs-up"></i> Similar Movies</h2>
+                    <div class="anime-grid">
+                        <!-- Spider-Man: No Way Home -->
+                        <div class="anime-card" data-id="spiderman-nowayhome" data-title="Spider-Man: No Way Home"
+                            data-type="movie" data-genres="action adventure sci-fi superhero" data-director="Jon Watts"
+                            data-cast="Tom Holland, Zendaya, Benedict Cumberbatch" data-budget="200M"
+                            data-language="Hindi" data-status="complete" data-year="2021" data-rating="4.8"
+                            data-network="Sony" data-duration="148" data-popularity="95"
+                            data-link="movie-spiderman-nowayhome.html">
+
+                            <a href="movie-spiderman-nowayhome.html" class="card-link">
+                                <img src="https://m.media-amazon.com/images/M/MV5BZWMyYzFjYTYtNTRjYi00OGExLWE2YzgtOGRmYjAxZTU3NzBiXkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_FMjpg_UX1000_.jpg"
+                                    alt="Spider-Man: No Way Home Poster" loading="lazy" class="card-image">
+
+                                <div class="anime-card-overlay">
+                                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                                    <h3 class="card-title">Spider-Man: No Way Home</h3>
+                                    <p class="card-meta">2021 • 148 min</p>
+                                </div>
+                            </a>
+
+                            <div class="premium-tag">HINDI</div>
+                        </div>
+                        <!-- Avengers: Endgame -->
+                        <div class="anime-card" data-title="Avengers: Endgame"
+                            data-genres="action adventure sci-fi superhero">
+                            <a href="movie-avengers-endgame.html">
+                                <img src="https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg"
+                                    alt="Avengers: Endgame Poster">
+                                <div class="anime-card-overlay">
+                                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                                    <h3>Avengers: Endgame</h3>
+                                    <p>2019 • 181 min</p>
+                                </div>
+                            </a>
+                            <!-- Premium Tag -->
+                            <div class="premium-tag">HINDI</div>
+                        </div>
+                        <!-- Fantastic Four -->
+                        <div class="anime-card" data-id="fantastic-four-2025" data-title="Fantastic Four"
+                            data-type="movie" data-genres="action adventure sci-fi superhero"
+                            data-director="Matt Shakman"
+                            data-cast="Pedro Pascal, Vanessa Kirby, Joseph Quinn, Ebon Moss-Bachrach" data-budget="200M"
+                            data-language="Hindi" data-status="upcoming" data-year="2025" data-rating="4.3"
+                            data-network="Marvel" data-duration="135" data-popularity="0"
+                            data-link="22-fantastic-4.html">
+
+                            <a href="22-fantastic-4.html" class="card-link">
+                                <img src="https://m.media-amazon.com/images/M/MV5BMTk0Mzc4ODg0Nl5BMl5BanBnXkFtZTgwNzg5MjMxMDE@._V1_FMjpg_UX1000_.jpg"
+                                    alt="Fantastic Four Poster" loading="lazy" class="card-image">
+
+                                <div class="anime-card-overlay">
+                                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                                    <h3 class="card-title">Fantastic Four</h3>
+                                    <p class="card-meta">2025 • 135 min</p>
+                                </div>
+                            </a>
+
+                            <div class="premium-tag">HINDI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">𝙰𝙼𝚅 𝚅𝙴𝚁𝚂𝙴</div>
+                <p>Your premium destination for watching and downloading subbed anime and movies.</p>
+                <div class="social-links">
+                    <a href="https://t.me/+SJcUauglTx4yNGQ1"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.youtube.com/channel/UCLPfwMjycrLnObR9rm3GXxQ"><i
+                            class="fab fa-youtube"></i></a>
+                    <a href="https://vivex-css.web.app/"><i class="fas fa-code"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 𝙰𝙼𝚅 𝚅𝙴𝚁𝚂𝙴. All Rights Reserved.</p>
+                <p>Disclaimer: This site does not store any files on its server. All contents are provided by
+                    non-affiliated third parties.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="data.js"></script>
+
+</body>
+
+</html>

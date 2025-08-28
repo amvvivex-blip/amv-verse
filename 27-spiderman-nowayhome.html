@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spider-Man: No Way Home (2021) Hindi Download | 𝙰𝙼𝚅 𝚅𝙴𝚁𝚂𝙴</title>
+    <meta name="description"
+        content="Download Spider-Man: No Way Home (2021) in Hindi quality. Hindi audio with English subtitles.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://ik.imagekit.io/qoobmximx/New%20Project%201%20_B35A9ED_.png?updatedAt=1755188985376"
+        type="png/image/x-icon">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Loading Animation -->
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">𝙰𝙼𝚅 𝚅𝙴𝚁𝚂𝙴</a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="1-all-content.html"><i class="fas fa-list"></i> All Contents</a></li>
+                    <li><a href="help.html"><i class="fas fa-question-circle"></i> How to Download</a></li>
+                    <li><a href="DMCA.html"><i class="fas fa-gavel"></i> DMCA</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Search Contents, Category...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Movie Detail Section -->
+    <main class="movie-detail-container">
+        <div class="container">
+            <div class="movie-detail-header">
+                <div class="movie-poster">
+                    <img src="https://images8.alphacoders.com/121/1218962.jpg" alt="Spider-Man: No Way Home"
+                        loading="lazy">
+                </div>
+                <div class="movie-actions">
+                    <a href="#download" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                    <!-- Button with video trailer  -->
+                    <button class="btn btn-secondary" id="trailerButton" data-video-url="https://youtu.be/JfVOs4VSpmA">
+                        <i class="fas fa-play"></i> Trailer
+                    </button>
+
+                    <!-- Modal for video player -->
+                    <div id="videoModal" class="modal"
+                        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
+                        <div style="position:relative; width:80%; max-width:800px;">
+                            <span class="close-modal"
+                                style="position:absolute; top:-40px; right:0; color:white; font-size:30px; cursor:pointer;">&times;</span>
+                            <div id="videoPlayerContainer" style="padding-top:56.25%; position:relative;">
+                                <iframe id="videoPlayer"
+                                    style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const trailerButton = document.getElementById('trailerButton');
+                            const videoModal = document.getElementById('videoModal');
+                            const videoPlayer = document.getElementById('videoPlayer');
+                            const closeModal = document.querySelector('.close-modal');
+
+                            // Function to extract YouTube ID from URL or return the original URL
+                            function getVideoEmbedUrl(url) {
+                                // YouTube handling
+                                if (url.includes('youtube.com') || url.includes('youtu.be')) {
+                                    let videoId = '';
+                                    if (url.includes('v=')) {
+                                        videoId = url.split('v=')[1].split('&')[0];
+                                    } else if (url.includes('youtu.be/')) {
+                                        videoId = url.split('youtu.be/')[1].split('?')[0];
+                                    }
+                                    return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+                                }
+                                // Vimeo handling
+                                else if (url.includes('vimeo.com')) {
+                                    const videoId = url.split('vimeo.com/')[1].split('?')[0];
+                                    return `https://player.vimeo.com/video/${videoId}?autoplay=1`;
+                                }
+                                // Direct video file (mp4, webm, etc.)
+                                else if (url.match(/\.(mp4|webm|ogg)$/i)) {
+                                    return url;
+                                }
+                                // If none of the above, return as-is (may work for some providers)
+                                return url;
+                            }
+
+                            trailerButton.addEventListener('click', function () {
+                                const videoUrl = this.getAttribute('data-video-url');
+                                if (videoUrl) {
+                                    const embedUrl = getVideoEmbedUrl(videoUrl);
+                                    videoPlayer.src = embedUrl;
+                                    videoModal.style.display = 'flex';
+                                }
+                            });
+
+                            closeModal.addEventListener('click', function () {
+                                videoPlayer.src = '';
+                                videoModal.style.display = 'none';
+                            });
+
+                            // Close modal when clicking outside the video
+                            videoModal.addEventListener('click', function (e) {
+                                if (e.target === videoModal) {
+                                    videoPlayer.src = '';
+                                    videoModal.style.display = 'none';
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+
+            <div class="movie-info">
+                <h1>Spider-Man: No Way Home <span>(2021)</span></h1>
+                <h2 class="original-title">The Multiverse Unleashed</h2>
+
+                <div class="movie-meta">
+                    <span><i class="fas fa-star"></i> 8.2/10</span>
+                    <span><i class="fas fa-clock"></i> 148 min</span>
+                    <span><i class="fas fa-calendar"></i> 2021</span>
+                    <span><i class="fas fa-globe"></i> USA</span>
+                    <span><i class="fas fa-tv"></i> Movie</span>
+                </div>
+
+                <div class="movie-info">
+                    <h3><i class="fas fa-tags"></i> genres - Action, Adventure, Sci-Fi, Superhero</h3>
+
+                    <div class="movie-languages">
+                        <span><strong>Available in:</strong></span>
+                        <button class="active">Hindi</button>
+                        <button>English Sub</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-detail-content">
+                <div class="movie-info">
+                    <h2><i class="fas fa-scroll"></i> Synopsis</h2>
+                    <p>For the first time in the cinematic history of Spider-Man, our friendly neighborhood hero is
+                        unmasked and no longer able to separate his normal life from the high-stakes of being a Super
+                        Hero. When he asks for help from Doctor Strange, the stakes become even more dangerous, forcing
+                        him to discover what it truly means to be Spider-Man.</p>
+                    <p>Peter Parker's secret identity is revealed to the entire world. Desperate for help, Peter turns
+                        to Doctor Strange to make the world forget that he is Spider-Man. The spell goes horribly wrong
+                        and shatters the multiverse, bringing in monstrous villains that could destroy the world.</p>
+                </div>
+
+                <div class="movie-info">
+                    <h2><i class="fas fa-users"></i> Main Characters</h2>
+
+                    <div class="cast-grid">
+                        <div class="cast-item">
+                            <div class="cast-photo">
+                                <img src="https://m.media-amazon.com/images/M/MV5BNzZiNTEyNTItYjNhMS00YjI2LWIwMWQtZmYwYTRlNjMyZTJjXkEyXkFqcGdeQXVyMTExNzQzMDE0._V1_.jpg"
+                                    alt="Tom Holland as Spider-Man" loading="lazy">
+                            </div>
+                            <h4>Tom Holland</h4>
+                            <p>Peter Parker / Spider-Man</p>
+                        </div>
+                        <div class="cast-item">
+                            <div class="cast-photo">
+                                <img src="https://m.media-amazon.com/images/M/MV5BMjE2MzY5NzM4Ml5BMl5BanBnXkFtZTgwMjcwMDU4NjM@._V1_.jpg"
+                                    alt="Benedict Cumberbatch as Doctor Strange" loading="lazy">
+                            </div>
+                            <h4>Benedict Cumberbatch</h4>
+                            <p>Doctor Strange</p>
+                        </div>
+                        <div class="cast-item">
+                            <div class="cast-photo">
+                                <img src="https://m.media-amazon.com/images/M/MV5BODU4MDY1MDE2N15BMl5BanBnXkFtZTgwOTQ3NTA0NzM@._V1_.jpg"
+                                    alt="Zendaya as MJ" loading="lazy">
+                            </div>
+                            <h4>Zendaya</h4>
+                            <p>Michelle "MJ" Jones</p>
+                        </div>
+                        <div class="cast-item">
+                            <div class="cast-photo">
+                                <img src="https://m.media-amazon.com/images/M/MV5BMTc2MjY0OTAyMl5BMl5BanBnXkFtZTcwMjU4NDg0Ng@@._V1_.jpg"
+                                    alt="Willem Dafoe as Green Goblin" loading="lazy">
+                            </div>
+                            <h4>Willem Dafoe</h4>
+                            <p>Norman Osborn / Green Goblin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-info">
+                    <h2><i class="fas fa-images"></i> Screenshots</h2>
+                    <div class="screenshot-info">
+                        <div class="screenshot">
+                            <img src="https://cdn.marvel.com/content/1x/spider-mannowayhome_lob_crd_03.jpg"
+                                alt="Screenshot 1" loading="lazy">
+                        </div>
+                        <div class="screenshot">
+                            <img src="https://cdn.marvel.com/content/1x/spider-mannowayhome_lob_crd_02.jpg"
+                                alt="Screenshot 2" loading="lazy">
+                        </div>
+                        <div class="screenshot">
+                            <img src="https://cdn.marvel.com/content/1x/spider-mannowayhome_lob_crd_01.jpg"
+                                alt="Screenshot 3" loading="lazy">
+                        </div>
+                        <div class="screenshot">
+                            <img src="https://cdn.marvel.com/content/1x/spider-mannowayhome_lob_crd_04.jpg"
+                                alt="Screenshot 4" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="download" class="movie-downloads">
+                    <h2><i class="fas fa-download"></i> Download Links</h2>
+
+                    <div class="download-options">
+                        <h3> Hindi Version</h3>
+                        <div class="download-quality">
+                            <h3><i class="fas fa-cloud-download-alt"></i>MULTI-SERVER</h3>
+                            <div class="hero-actions">
+                                <a href="https://teraboxlinks.com/spidermannwh480" class="btn btn-primary">480p</a>
+
+                                <div class="hero-actions">
+                                    <a href="https://teraboxlinks.com/spidermannwh720" class="btn btn-primary">720p</a>
+
+                                    <div class="hero-actions">
+                                        <a href="https://teraboxlinks.com/spidermannwh1080"
+                                            class="btn btn-primary">1080p</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-recommendations">
+                    <h2><i class="fas fa-thumbs-up"></i> Similar Movies</h2>
+                    <div class="anime-grid">
+                        <!-- Spider-Man: Homecoming -->
+                        <div class="anime-card" data-id="spiderman-homecoming" data-title="Spider-Man: Homecoming"
+                            data-type="movie" data-genres="action adventure sci-fi superhero" data-director="Jon Watts"
+                            data-cast="Tom Holland, Michael Keaton, Zendaya" data-budget="175M" data-language="Hindi"
+                            data-status="complete" data-year="2017" data-rating="4.7" data-network="Sony"
+                            data-duration="133" data-popularity="90" data-link="movie-spiderman-homecoming.html">
+
+                            <a href="movie-spiderman-homecoming.html" class="card-link">
+                                <img src="https://m.media-amazon.com/images/M/MV5BNTk4ODQ1MzgzNl5BMl5BanBnXkFtZTgwMTMyMzM4MTI@._V1_FMjpg_UX1000_.jpg"
+                                    alt="Spider-Man: Homecoming Poster" loading="lazy" class="card-image">
+
+                                <div class="anime-card-overlay">
+                                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                                    <h3 class="card-title">Spider-Man: Homecoming</h3>
+                                    <p class="card-meta">2017 • 133 min</p>
+                                </div>
+                            </a>
+
+                            <div class="premium-tag">HINDI</div>
+                        </div>
+                        <!-- Spider-Man: Far From Home -->
+                        <div class="anime-card" data-id="spiderman-farfromhome" data-title="Spider-Man: Far From Home"
+                            data-type="movie" data-genres="action adventure sci-fi superhero" data-director="Jon Watts"
+                            data-cast="Tom Holland, Zendaya, Jake Gyllenhaal" data-budget="160M" data-language="Hindi"
+                            data-status="complete" data-year="2019" data-rating="4.6" data-network="Sony"
+                            data-duration="129" data-popularity="92" data-link="movie-spiderman-farfromhome.html">
+
+                            <a href="movie-spiderman-farfromhome.html" class="card-link">
+                                <img src="https://m.media-amazon.com/images/M/MV5BMGZlNTY1ZWUtYTMzNC00ZjUyLWE0MjQtMTMxN2E3ODYxMWVmXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg"
+                                    alt="Spider-Man: Far From Home Poster" loading="lazy" class="card-image">
+
+                                <div class="anime-card-overlay">
+                                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                                    <h3 class="card-title">Spider-Man: Far From Home</h3>
+                                    <p class="card-meta">2019 • 129 min</p>
+                                </div>
+                            </a>
+
+                            <div class="premium-tag">HINDI</div>
+                        </div>
+                        <!-- Doctor Strange in the Multiverse of Madness -->
+                        <div class="anime-card" data-title="Doctor Strange in the Multiverse of Madness"
+                            data-genres="action adventure fantasy superhero">
+                            <a href="movie-doctor-strange-mom.html">
+                                <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg"
+                                    alt="Doctor Strange in the Multiverse of Madness Poster">
+                                <div class="anime-card-overlay">
+                                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                                    <h3>Doctor Strange: Multiverse of Madness</h3>
+                                    <p>2022 • 126 min</p>
+                                </div>
+                            </a>
+                            <!-- Premium Tag -->
+                            <div class="premium-tag">HINDI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">𝙰𝙼𝚅 𝚅𝙴𝚁𝚂𝙴</div>
+                <p>Your premium destination for watching and downloading subbed anime and movies.</p>
+                <div class="social-links">
+                    <a href="https://t.me/+YUDTOIBEztY5NmY1"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.youtube.com/channel/UCLPfwMjycrLnObR9rm3GXxQ"><i
+                            class="fab fa-youtube"></i></a>
+                    <a href="https://vivex-css.web.app/"><i class="fas fa-code"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 𝙰𝙼𝚅 𝚅𝙴𝚁𝚂𝙴. All Rights Reserved.</p>
+                <p>Disclaimer: This site does not store any files on its server. All contents are provided by
+                    non-affiliated third parties.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="data.js"></script>
+</body>
+
+</html>
