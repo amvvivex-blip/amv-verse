@@ -40,36 +40,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Carousel Logic (Optimized) ---
-    if (elements.carouselItems.length > 0) {
-        let currentIndex = 1;
-        let carouselInterval;
+  // --- Carousel Logic ---
+const carouselItems = document.querySelectorAll('.carousel-item');
+if (carouselItems.length > 0) {
+    let currentIndex = 0; // start with the first item
 
-        // Use transform3d for hardware acceleration
-        const updateCarousel = () => {
-            requestAnimationFrame(() => {
-                elements.carouselItems.forEach((item, index) => {
-                    let offset = index - currentIndex;
-                    if (offset > 1) offset -= 3;
-                    if (offset < -1) offset += 3;
+    const updateCarousel = () => {
+        const total = carouselItems.length;
 
-                    const isActive = offset === 0;
+        carouselItems.forEach((item, index) => {
+            let offset = (index - currentIndex + total) % total;
 
-                    // Use will-change for better performance
-                    item.style.willChange = 'transform, opacity';
-                    item.style.transform = isActive
-                        ? 'translate3d(0, 0, 0) scale(1)'
-                        : `translate3d(${offset * 110}%, 0, 0) scale(0.8)`;
-                    item.style.opacity = isActive ? '1' : '0.5';
-                    item.style.zIndex = isActive ? '4' : '1';
+            // Normalize offset so nearest neighbors are left/right
+            if (offset > total / 2) offset -= total;
 
-                    // Remove will-change after animation completes
-                    setTimeout(() => {
-                        item.style.willChange = 'auto';
-                    }, 300);
-                });
-            });
-        };
+            item.classList.toggle('active', offset === 0);
+            item.style.transform =
+                offset === 0
+                    ? 'translateX(0) scale(1)'
+                    : `translateX(${offset * 110}%) scale(0.8)`;
+            item.style.opacity = offset === 0 ? '1' : '0.5';
+            item.style.zIndex = offset === 0 ? '4' : '1';
+        });
+    };
+
+    updateCarousel();
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % carouselItems.length;
+        updateCarousel();
+    }, 2000);
+}
 
         // Initialize carousel
         updateCarousel();
@@ -453,4 +454,5 @@ document.addEventListener('DOMContentLoaded', function () {
         noMoreContent.style.display = 'block';
     }
 });
+
 
