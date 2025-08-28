@@ -23,23 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(() => {
                 elements.loaderWrapper.classList.add('loader-hidden');
             });
-        };
-
-        // Check if page is already loaded
-        if (document.readyState === 'complete') {
-            hideLoader();
-        } else {
-            window.addEventListener('load', hideLoader, { once: true });
-        }
-    }
-
-    // --- Mobile Menu Toggle ---
-    if (elements.mobileMenuToggle && elements.mainNav) {
-        elements.mobileMenuToggle.addEventListener('click', () => {
-            elements.mainNav.classList.toggle('active');
-        });
-    }
-
   // --- Carousel Logic ---
 const carouselItems = document.querySelectorAll('.carousel-item');
 if (carouselItems.length > 0) {
@@ -70,35 +53,32 @@ if (carouselItems.length > 0) {
         currentIndex = (currentIndex + 1) % carouselItems.length;
         updateCarousel();
     }, 2000);
-}
+}      };
 
-        // Initialize carousel
-        updateCarousel();
-
-        // Start interval with proper cleanup
-        const startCarousel = () => {
-            carouselInterval = setInterval(() => {
-                currentIndex = (currentIndex + 1) % 3;
-                updateCarousel();
-            }, 2000);
-        };
-
-        startCarousel();
-
-        // Pause carousel on hover for better UX
-        const carouselContainer = document.querySelector('.carousel-container');
-        if (carouselContainer) {
-            carouselContainer.addEventListener('mouseenter', () => {
-                clearInterval(carouselInterval);
-            });
-
-            carouselContainer.addEventListener('mouseleave', () => {
-                startCarousel();
-            });
+        // Check if page is already loaded
+        if (document.readyState === 'complete') {
+            hideLoader();
+        } else {
+            window.addEventListener('load', hideLoader, { once: true });
         }
     }
 
-    // --- Search and Filter Functionality (Optimized) ---
+    // --- Mobile Menu Toggle ---
+    if (elements.mobileMenuToggle && elements.mainNav) {
+        elements.mobileMenuToggle.addEventListener('click', () => {
+            elements.mainNav.classList.toggle('active');
+        });
+    }
+
+  // --- Carousel Logic ---
+const carouselItems = document.querySelectorAll('.carousel-item');
+if (carouselItems.length > 0) {
+    let currentIndex = 0; // start with the first item
+
+    const updateCarousel = () => {
+        const total = carouselItems.length;
+
+r Functionality (Optimized) ---
     // Create suggestions container
     const suggestionsContainer = document.createElement('div');
     suggestionsContainer.className = 'search-suggestions';
@@ -454,5 +434,6 @@ document.addEventListener('DOMContentLoaded', function () {
         noMoreContent.style.display = 'block';
     }
 });
+
 
 
